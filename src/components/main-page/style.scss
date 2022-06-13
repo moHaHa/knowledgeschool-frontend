@@ -1,0 +1,50 @@
+.langbar {
+    .v-tab {
+        text-transform: none !important;
+        font-size: 10px !important;
+        width: 30px !important;
+        height: 30px !important;
+        padding: 0px !important;
+        min-width: 50px;
+        max-width: 100px;
+    }
+    .v-tabs-bar {
+        height: 30px !important;
+    }
+}
+// .main-content {
+    // border: 1px solid rgba(1, 1, 1, 0.15);
+    // @apply tw-rounded-lg tw-p-2  tw-shadow-drop;
+// }
+.rotateRightDrawer {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+}
+.rotateLeftDrawer {
+    transform: rotate(180deg);
+    transition: all 0.2s ease;
+}
+.v-application--wrap {
+    background-color: var(--v-gray-three-base);
+}
+.erp-v-navigation-drawer-left {
+    /* border-start-end-radius: 8px;
+    border-end-end-radius: 8px;
+    border-end-end-radius: 8px;
+    border-end-end-radius: 8px; */
+    border-radius: 8px;
+}
+.erp-v-navigation-drawer-right {
+    /* border-start-start-radius: 8px;
+    border-end-start-radius: 8px; */
+    border-radius: 8px;
+}
+.v-navigation-drawer__border {
+    display: none;
+}
+.v-navigation-drawer--right {
+    right: 7px !important;
+}
+.erp-v-navigation-drawer-left {
+    left: 7px !important;
+}

@@ -1,0 +1,19 @@
+{
+    "message": "hello i18n !!",
+    "theme": "theme",
+    "language": "language",
+    "dark": "dark",
+    "light": "light",
+    "docs": "docs",
+    "arabic": "العربية",
+    "english": "english",
+    "base": "base",
+    "list": "list",
+    "settings": "settings",
+    "new": "new",
+    "save": "save",
+    "update": "update",
+    "delete": "delete",
+    "search": "search",
+    "module": "module"
+}

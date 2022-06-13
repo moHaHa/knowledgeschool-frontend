@@ -1,0 +1,48 @@
+ div.v-application div {
+     .v-application  {
+         background-color: var(--v-white-smoke-base);
+     }
+     .v-application--wrap {
+         background-color: var(--v-white-smoke-base);
+     }
+     .v-main {
+        background-color: var(--v-white-smoke-base);
+    }
+        .v-system-bar-container{
+        background-color: var(--v-white-smoke-base);
+    }
+    .ERP-Modules-List  {
+  
+        background-color: var(--v-old-lace-base);
+    }
+    .ERP-Modules-Item {
+        
+        border-style:solid;
+        border-width: 1px;
+        border-color: var(--v-seashell-base);
+        color: var(--v-cool-black-base);
+        background-color: var(--v-seashell-base)
+    }
+    .ERP-Modules-Item:hover {
+        background-color: var(--v-light-flat-primary-base);
+        border-color: var(--v-light-primary-base);
+        color: var(--v-primary-base);
+  
+    }
+    .ERP-Modules-Item.router-link-active {
+   
+        color: var(--v-white-base);
+        background-color: var(--v-primary-base);
+        border-color: var(--v-primary-base);
+        
+    }
+    .ERP-Modules-Item.ERP-Modules-Item-active{
+        color: var(--v-white-base);
+        background-color: var(--v-primary-base);
+        border-color: var(--v-primary-base);
+        
+    }
+   
+
+
+ }

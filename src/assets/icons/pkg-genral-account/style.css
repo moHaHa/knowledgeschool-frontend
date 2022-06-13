@@ -1,0 +1,47 @@
+@font-face {
+    font-family: "genral-account";
+    src: url("fonts/genral-account.eot?wvwyvw");
+    src: url("fonts/genral-account.eot?wvwyvw#iefix")
+            format("embedded-opentype"),
+        url("fonts/genral-account.ttf?wvwyvw") format("truetype"),
+        url("fonts/genral-account.woff?wvwyvw") format("woff"),
+        url("fonts/genral-account.svg?wvwyvw#genral-account") format("svg");
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: "genral-account" !important;
+    speak: never;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-erp-entry:before {
+    content: "\a900";
+}
+.icon-erp-cost-center:before {
+    content: "\a901";
+}
+.icon-erp-DandD:before {
+    content: "\a902";
+}
+.icon-erp-DandD-class:before {
+    content: "\a903";
+}
+.icon-erp-sub-accounts:before {
+    content: "\a904";
+}
+.icon-erp-general-account:before {
+    content: "\a905";
+}
