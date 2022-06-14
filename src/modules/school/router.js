@@ -15,9 +15,24 @@ export default {
           component: () => import('./admin/songs')
         },
         {
-          path: 'stories',
-          component: () => import('./admin/stories')
+          path: 'users',
+          component: () => import('./admin/users')
         }
+      ]
+    },
+    {
+      path: 'views',
+      component: () => import('./layouts/views-layout'),
+      children: [
+        {
+          path: 'home',
+          component: () => import('./views/home')
+        },
+        {
+          path: 'library',
+          component: () => import('./views/library')
+        },
+
       ]
     }
   ]

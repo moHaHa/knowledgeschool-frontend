@@ -18,11 +18,13 @@ export default {
   },
   data () {
     return {
-      endPoint: 'movie',
+      endPoint: 'song',
       form: [
-        { field: 'title', display_name: 'الاسم', type: 'text' },
-        { field: 'image', display_name: 'الصورة', type: 'iamge' },
-        { field: 'url', display_name: 'رابط فيديو youtube', type: 'text' },
+        { field: 'name', display_name: 'name', type: 'text' },
+        { field: 'email', display_name: 'email', type: 'text' },
+        { field: 'password', display_name: 'password', type: 'text' },
+        { field: 'phone', display_name: 'phone', type: 'text' },
+        { field: 'address', display_name: 'address', type: 'textarea' },
         ]
     }
   }

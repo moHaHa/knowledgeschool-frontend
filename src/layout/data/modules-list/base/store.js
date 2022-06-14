@@ -10,13 +10,13 @@ export default {
             nameChild: 'page',
             iconName: 'mdi-home',
             type: 'link',
-            path: '/base/sub-module-1/page-1'
+            path: '/svu/admin'
           },
           {
             nameChild: 'page',
             iconName: 'mdi-home',
             type: 'link',
-            path: '/base/sub-module-1/page-2'
+            path: '/svu/views'
           },
           {
             nameChild: 'page',

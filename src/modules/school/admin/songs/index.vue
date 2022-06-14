@@ -1,10 +1,30 @@
 <template>
-  <div>songs</div>
+  <div>
+    <content-once
+      :RecordsJSONPath="'data'"
+      :existedRecordJSONPath="'data'"
+      :vuexModuleName="endPoint"
+      :endPoint="endPoint"
+      :form="form"
+    />
+  </div>
 </template>
 
 <script>
-export default {}
+import content from '@/components/SVC/content'
+export default {
+  components: {
+    'content-once': content
+  },
+  data () {
+    return {
+      endPoint: 'song',
+      form: [
+        { field: 'title', display_name: 'title', type: 'text' },
+        { field: 'image', display_name: 'image', type: 'iamge' },
+        { field: 'url', display_name: 'url', type: 'text' },
+        ]
+    }
+  }
+}
 </script>
-
-<style>
-</style>
