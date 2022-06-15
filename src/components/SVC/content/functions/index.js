@@ -30,12 +30,13 @@ export const fillformInMainForm = {
 export const getElementComponent = function (type) {
   let component = null
   switch (type) {
-  case 'select_dropdown':
-    component = 'erp-select'
+
+  case 'image':
+    component = 'd-img'
     break
 
   default:
-    component = 'erp-input'
+    component = 'd-input'
     break
   }
   return component

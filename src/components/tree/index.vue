@@ -122,7 +122,5 @@ export default {
 }
 </script>
 <style lang="scss">
-.theme--light.v-icon {
-  color: #6bcded;
-}
+
 </style>

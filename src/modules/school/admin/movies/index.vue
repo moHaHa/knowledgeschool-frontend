@@ -6,6 +6,8 @@
       :vuexModuleName="endPoint"
       :endPoint="endPoint"
       :form="form"
+      :buttonNewText="'إضافة فيلم جديد'"
+      :buttonListText="'قائمة الأفلام'"
     />
   </div>
 </template>
@@ -21,8 +23,8 @@ export default {
       endPoint: 'movie',
       form: [
         { field: 'title', display_name: 'الاسم', type: 'text' },
-        { field: 'image', display_name: 'الصورة', type: 'iamge' },
         { field: 'url', display_name: 'رابط فيديو youtube', type: 'text' },
+        { field: 'image', display_name: 'الصورة', type: 'image' },
         ]
     }
   }

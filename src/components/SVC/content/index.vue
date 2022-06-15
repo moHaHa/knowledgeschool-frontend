@@ -1,9 +1,10 @@
 <template>
-  <div v-if="schemaLoader">
+  <div class="py-3 px-3">
+<div v-if="schemaLoader">
     <div class="tw-flex align-center justify-center">
       <v-progress-circular
         :size="100"
-        color="primary"
+        color="secondary"
         indeterminate
       ></v-progress-circular>
     </div>
@@ -30,11 +31,11 @@
         <v-progress-linear
           v-if="recordsLoader"
           indeterminate
-          color="yellow darken-2"
+          color="secondary"
         ></v-progress-linear>
       </div>
       <div class="my-2">
-        <v-btn @click="newButton">new</v-btn>
+        <v-btn   depressed color="primary" @click="newButton">{{buttonNewText}}</v-btn>
         <v-btn
           class="ms-2"
           @click="pageStatusToList(vuexModuleNameComputed)"
@@ -59,14 +60,14 @@
       <v-progress-linear
         v-if="singleRecordsLoader"
         indeterminate
-        color="red darken-2"
+        color="secondary"
       ></v-progress-linear>
       <v-progress-linear
         v-if="updateRecordsLoader"
         indeterminate
-        color="purple darken-2"
+        color="secondary"
       ></v-progress-linear>
-      <v-btn @click="pageStatusToList(vuexModuleNameComputed)"> list </v-btn>
+      <v-btn class="mx-2" depressed color="primary" @click="pageStatusToList(vuexModuleNameComputed)"> {{buttonListText}} </v-btn>
       <div>
         <div class="tw-mt-4">
           <div :class="[fullRow]">
@@ -80,7 +81,7 @@
           </div>
         </div>
         <div>
-          <v-btn color="teal" outlined @click="update"> update </v-btn>
+          <v-btn color="primary" outlined @click="update"> حفظ التعديلات </v-btn>
         </div>
       </div>
     </div>
@@ -90,10 +91,10 @@
       <v-progress-linear
         v-if="storeRecordsLoader"
         indeterminate
-        color="teal darken-2"
+        color="secondary"
       ></v-progress-linear>
       <div class="form">
-        <v-btn @click="pageStatusToList(vuexModuleNameComputed)"> list </v-btn>
+        <v-btn class="mx-2" depressed color="primary" @click="pageStatusToList(vuexModuleNameComputed)"> {{buttonListText}} </v-btn>
         <div>
           <div class="tw-mt-4">
             <div :class="[fullRow]">
@@ -112,10 +113,11 @@
           </div>
         </div>
         <div>
-          <v-btn class="ma-2" outlined color="indigo" @click="save">save</v-btn>
+          <v-btn class="ma-2" outlined color="primary" @click="save">حفظ</v-btn>
         </div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
@@ -158,6 +160,14 @@ export default {
     }
   },
   props: {
+    buttonNewText:{
+      type:String,
+      default:()=> "New"
+    },  
+    buttonListText:{
+      type:String,
+      default:()=> "list"
+    },  
     form: {
       type: [Array]
     },

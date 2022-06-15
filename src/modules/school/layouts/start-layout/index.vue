@@ -1,27 +1,5 @@
 <template>
-  <v-app id="inspire">
-   <v-system-bar color="primary" app height="auto">
-      <div style="padding:1.5rem 7%;" class="tw-w-full d-flex justify-space-between">
-      <div class="secondary--text h5-text">
-         مدرسة المعرفة 
-      </div>
-      <div class="">
-
-        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
-        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
-        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
-        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
-      </div>
-      <div>
-        logo
-      </div>
-      </div>
-   </v-system-bar>
-
-    <v-main class="grey lighten-3">
      <router-view></router-view>
-    </v-main>
-  </v-app>
 </template>
 <script>
 export default {
@@ -36,8 +14,28 @@ export default {
     }
   },
   created(){
+    this.$store.registerModule('school', {
+      namespaced:true,
+      state:{
+        user:'user',
+        isLogin:true
+      },
+      getters:{
+        isLogin(state){
+          return state.isLogin
+        }
+      }
+    })
     console.log(this.$vuetify);
     this.$vuetify.rtl  = true
   }
 }
 </script>
+<style>
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css');
+@import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
+*:not(.fas) {
+  font-family: 'Cairo', sans-serif !important;
+}
+
+</style>

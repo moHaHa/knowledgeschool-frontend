@@ -17,4 +17,5 @@ export default {
 @import './css/hover.scss';
 @import './css/style.scss';
 // }
+
 </style>
