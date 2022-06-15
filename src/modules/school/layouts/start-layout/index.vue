@@ -1,10 +1,20 @@
 <template>
   <v-app id="inspire">
-   <v-system-bar app height="auto">
+   <v-system-bar color="primary" app height="auto">
       <div style="padding:1.5rem 7%;" class="tw-w-full d-flex justify-space-between">
-        <div>logo</div>
-        <div>logo</div>
-        <div>logo</div>
+      <div class="secondary--text h5-text">
+         مدرسة المعرفة 
+      </div>
+      <div class="">
+
+        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
+        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
+        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
+        <router-link  class="white--text me-3" :to="'/svu/views/home#about'">logo</router-link>
+      </div>
+      <div>
+        logo
+      </div>
       </div>
    </v-system-bar>
 

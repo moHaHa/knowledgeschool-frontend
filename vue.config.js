@@ -3,7 +3,7 @@ module.exports = {
 
   devServer: {
     host: 'localhost',
-    proxy: 'http://webteam-001-site1.ftempurl.com/api'
+    proxy: 'http://knowledgeschool-001-site1.dtempurl.com'
   },
 
   pluginOptions: {
