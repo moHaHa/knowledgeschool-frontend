@@ -1,39 +1,47 @@
 <template>
- <div>
-  
-    <v-img  :src="val"  />
- <input id="example" type="file" @change="uploadFile" />
-    <v-file-input
-      @change="createImageData"
+  <div>
+     <v-file-input
       clearable
+      :loading="loading"
       prepend-icon="mdi-camera"
-       show-size
+      show-size
+      @change="uploadFile"
     >
     </v-file-input>
- </div>
+    <v-img :src="val" max-width="100%">
+     <template v-slot:placeholder>
+          <v-row
+            class="fill-height ma-0"
+            align="center"
+            justify="center"
+          >
+            <v-progress-circular
+              indeterminate
+              color="grey lighten-5"
+            ></v-progress-circular>
+          </v-row>
+        </template>
+      </v-img>
+  </div>
 </template>
 
-<script src="https://js.upload.io/upload-js/v1"></script>
 <script>
-var upload = new Upload({apiKey: "free"})
-   var uploadFile = upload.createFileInputHandler({
-     onUploaded: ({ fileUrl, fileId }) => {
-       alert(`File uploaded! ${fileUrl}`);
-     }
-   });
-   
+/* eslint-disable no-undef */
+/* eslint-disable no-unused-vars */
+let upload = new Upload({ apiKey: 'free' })
+
 export default {
   name: 'd-img',
   props: {
     value: {
       type: String
-    },
-   
+    }
   },
   data () {
     return {
       img: '',
-      componentKey:0
+      loading: false,
+      componentKey: 0
     }
   },
 
@@ -53,11 +61,30 @@ export default {
     }
   },
   methods: {
-    uploadFile,
+    uploadFile(event) {
+      if(event === null) return 
+      
+      let e = {
+        target: {
+          files: [event],
+        },
+      }
+      this.uploadFile =   upload.createFileInputHandler({
+        onBegin:()=>{
+          this.loading = true
+        },
+        onUploaded: ({ fileUrl, fileId }) => {
+          this.loading = false
+          this.val = fileUrl
+        }
+      })
+      this.uploadFile(e)
+    },
+
     createImageData (file) {
       if (!file) {
         this.$emit('input', '')
-        return;
+        return
       }
       const store = new FileReader()
       store.readAsDataURL(file)
@@ -65,9 +92,7 @@ export default {
         this.$emit('input', store.result)
       }
     }
-  },
-  
-
+  }
 }
 </script>
 

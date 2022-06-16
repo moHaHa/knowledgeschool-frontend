@@ -85,9 +85,40 @@ data: () => ({
   })
 }
 </script>
-<style >
+<style lang="scss">
 .html-font {
   font-size: 100% !important;
   transition: none !important;
 }
+
+        .ag-row-pinned {
+            background-color: var(--v-primary-base);
+            :first-child {
+                display: none;
+            }
+        }
+        .ag-root-wrapper {
+            border-top-left-radius: 12px !important;
+            border-top-right-radius: 12px !important;
+        }
+
+        .ag-pinned-right-header {
+            background-color: var(--v-primary-base);
+        }
+        .ag-header-viewport {
+            background-color: var(--v-primary-base);
+            font-weight: 600;
+        }
+
+        .ag-header-cell-text {
+            color: white;
+            font-weight: 600;
+        }
+        .ag-header-cell-resize {
+            height: 70%;
+            top: 15%;
+            background-color: rgba(255, 255, 255, 0.5);
+            width: 6px;
+        }
+
 </style>

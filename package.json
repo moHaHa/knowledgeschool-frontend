@@ -80,6 +80,7 @@
             "query-string": "^7.0.1",
             "roboto-fontface": "*",
             "tabulator-tables": "^4.9.3",
+            "upload-js": "^1.48.21",
             "vee-validate": "^3.4.14",
             "vue": "^2.6.11",
             "vue-apexcharts": "^1.6.2",
@@ -92,7 +93,9 @@
             "vuetify": "^2.4.0",
             "vuex": "^3.4.0",
             "vuex-map-fields": "^1.4.1",
+           
             "yup": "^0.32.11"
+            
         },
         "rules": {}
     },

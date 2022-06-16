@@ -1,9 +1,9 @@
 <template>
-  <div class="tw-flex align-center">
-    <v-btn class="me-2" @click="invokeParentMethod_editButton" x-small icon fab  outlined color="indigo"
+  <div class="tw-flex align-center justify-space-around">
+    <v-btn class="mx-2" @click="invokeParentMethod_editButton" x-small icon fab  outlined color="primary"
       ><v-icon>mdi-pencil</v-icon></v-btn
     >
-    <v-btn @click="invokeParentMethod_deleteButton" x-small icon fab outlined color="red"
+    <v-btn @click="invokeParentMethod_deleteButton" x-small icon fab outlined color="primary"
       ><v-icon>mdi-close</v-icon></v-btn
     >
   </div>
