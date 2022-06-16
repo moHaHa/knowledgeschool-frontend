@@ -9,7 +9,7 @@ const router = new Router({
   base: process.env.BASE_URL,
   scrollBehavior (to) {
     if (to.hash) {
-      return { selector: to.hash   ,behavior: 'smooth', }
+      return { selector: to.hash   ,behavior: 'smooth', x: 0, y: 0  }
       } else {
 
         return { x: 0, y: 0 ,behavior: 'smooth',}

@@ -8,9 +8,9 @@
     <header>
       <div id="menu" class="fas fa-bars"></div>
 
-      <a href="index.html" class="logo"
+      <router-link to="/home" class="logo"
         ><i class="fas fa-user-graduate"></i> مدرسة المعرفة
-      </a>
+      </router-link>
 
       <nav class="navbar">
         <ul>
@@ -211,7 +211,7 @@
       <h1 class="heading" style="margin-top: 180px">المكتبة</h1>
       <p class="text-center fs-1">مكتبة متنوعة فيها كل ما يلزم أطفالك</p>
 
-      <router-link :to="'/svu/views/library'"
+      <router-link :to="'/library'"
         ><button class="btn">انقر هنا</button></router-link
       >
     </section>
@@ -236,29 +236,32 @@
             <div class="card-body">
               <div class="row w-75">
                 <div>{{ msgContack }}</div>
-                <form @submit.prevent="log">
+                <form @submit.prevent="post">
                   <input
                     v-model="contactForm.name"
                     type="text"
                     placeholder="الاسم كامل"
                     class="box"
+                    required
                   />
                   <input
                     v-model="contactForm.email"
                     type="email"
                     placeholder="بريدك الالكتروني"
                     class="box"
+                    required
                   />
                   <input
                     v-model="contactForm.password"
-                    type="password"
                     placeholder="كلمة السر "
                     class="box"
+                    required
                   />
                   <input
                     v-model="contactForm.phone"
                     placeholder="هاتفك"
                     class="box"
+                    required
                   />
                   <textarea
                     v-model="contactForm.address"
@@ -266,8 +269,15 @@
                     rows="10"
                     class="box address"
                     placeholder="عنوانك"
+                    required
                   ></textarea>
                   <input type="submit" class="btn" value="ارسال الان" />
+                  <v-progress-circular
+                    :size="36"
+                    v-if="contactLoading"
+                    color="primary"
+                    indeterminate
+                  ></v-progress-circular>
                 </form>
               </div>
             </div>
@@ -314,68 +324,69 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from "vuex";
-import axios from "@/axios";
+import { mapGetters, mapMutations } from 'vuex'
+import axios from '@/axios'
 export default {
-  data() {
+  data () {
     return {
-      msg: "",
-      contactForm: {},
+      msg: '',
+      contactForm: {
+        name: '',
+        email: '',
+        password: '',
+        phone: '',
+        address: ''
+      },
+      msgContack: '',
       contactLoading: false,
       dialog: false,
       loginForm: {
-        user: "",
-        password: "",
-      },
-    };
+        user: '',
+        password: ''
+      }
+    }
   },
   computed: {
-    ...mapGetters("school", ["isLogin"]),
+    ...mapGetters('school', ['isLogin', 'user', 'isRegistered', 'userData'])
   },
   methods: {
-    log() {
+    log () {
       if (
-        (this.loginForm.user === "admin") &
-        (this.loginForm.password == "123")
+        (this.loginForm.user === 'admin') &
+        (this.loginForm.password == '123')
       ) {
-        this.dialog = false;
-        this.login();
+        this.dialog = false
+        this.login()
         setTimeout(() => {
-          this.$router.push("/svu/admin");
-        }, 1000);
+          this.$router.push('/svu/admin')
+        }, 1000)
       } else {
-        this.msg = "خطأ في اسم المستخدم او كلمة المرور";
+        this.msg = 'خطأ في اسم المستخدم او كلمة المرور'
       }
     },
-    async post() {
-      if (
-        this.contactForm.name &
-        this.contactForm.email &
-        this.contactForm.password &
-        this.contactForm.phone &
-        this.contactForm.address
-      ) {
-        this.msgContack = "يجب ملئ جميع الحقول";
-      } else {
-        this.msgContack = "";
-        this.contactLoading = true;
-        try {
-          let res = await axios.post("/user", contactForm);
-          this.contactLoading = false;
-          this.contactLoading = false;
-        } catch (err) {
-          this.contactLoading = false;
-          console.log(err);
-          this.contactLoading = err;
-        }
+    async post () {
+      console.log(this.contactForm)
+
+      this.contactLoading = true
+      try {
+        let res = await axios.post('/user', this.contactForm)
+        console.log(res)
+        this.register(this.contactForm)
+        this.contactLoading = false
+        this.contactLoading = false
+        this.msgContack = 'تم الارسال بنجاح'
+      } catch (err) {
+        this.contactLoading = false
+        console.log(err)
+        this.contactLoading = err
       }
     },
 
-    ...mapMutations("school", ["login", "logout"]),
-  },
-};
+    ...mapMutations('school', ['login', 'logout' , 'register'])
+  }
+}
 </script>
 
 <style>
-@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css');
 </style>

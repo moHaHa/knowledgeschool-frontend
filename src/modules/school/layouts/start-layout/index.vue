@@ -20,11 +20,16 @@ export default {
       namespaced:true,
       state:{
         user:'user',
-        isLogin:false
+        isLogin:false,
+        isRegistered:false,
+        userData:{}
       },
       getters:{
         isLogin(state){
           return state.isLogin
+        },
+        isRegistered(state){
+          return state.isRegistered
         }
       },
       mutations:{
@@ -34,6 +39,10 @@ export default {
         },
         logout (state){
           state.isLogin = false
+        },
+        register (state, userData){
+          this.isRegistered = true
+          state.userData = userData
         }
       }
     })
