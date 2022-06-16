@@ -6,6 +6,8 @@
       :vuexModuleName="endPoint"
       :endPoint="endPoint"
       :form="form"
+      :buttonNewText="'إضافة اغنية جديدة'"
+      :buttonListText="'قائمة الأغاني'"
     />
   </div>
 </template>
@@ -20,9 +22,9 @@ export default {
     return {
       endPoint: 'song',
       form: [
-        { field: 'title', display_name: 'title', type: 'text' },
-        { field: 'image', display_name: 'image', type: 'iamge' },
-        { field: 'url', display_name: 'url', type: 'text' },
+        { field: 'title', display_name: 'الاسم', type: 'text' },
+        { field: 'url', display_name: 'رابط الإغنية youtube', type: 'text' },
+        { field: 'image', display_name: 'الصورة', type: 'image' },
         ]
     }
   }
