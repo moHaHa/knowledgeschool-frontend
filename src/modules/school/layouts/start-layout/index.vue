@@ -1,5 +1,7 @@
 <template>
-     <router-view></router-view>
+    <v-app>
+       <router-view></router-view>
+    </v-app>
 </template>
 <script>
 export default {
@@ -18,11 +20,20 @@ export default {
       namespaced:true,
       state:{
         user:'user',
-        isLogin:true
+        isLogin:false
       },
       getters:{
         isLogin(state){
           return state.isLogin
+        }
+      },
+      mutations:{
+        login (state ){
+         
+          state.isLogin = true
+        },
+        logout (state){
+          state.isLogin = false
         }
       }
     })

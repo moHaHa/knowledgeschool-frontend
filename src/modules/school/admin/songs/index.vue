@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import content from '@/components/SVC/content'
+import content from '@/components/content'
 export default {
   components: {
     'content-once': content

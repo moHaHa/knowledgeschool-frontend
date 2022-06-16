@@ -11,10 +11,7 @@ export default {
     ...mapGetters('Colors', ['isThemeDark'])
   },
   created () {
-    this.$i18n.locale = this.locale
-    document.getElementsByTagName('html')[0].lang = this.locale
-    if (this.locale === 'ar') this.$vuetify.rtl = true
-    this.$vuetify.theme.dark = this.isThemeDark === 'true'
+  
   }
 }
 </script>

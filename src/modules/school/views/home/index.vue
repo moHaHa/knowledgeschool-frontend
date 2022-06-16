@@ -18,42 +18,52 @@
           <li><a href="#about">حول المدرسة </a></li>
           <li><a href="#course">الصفوف والاسعار</a></li>
           <li><a href="#library">المكتبة</a></li>
-          <li><a href="#contact">التواصل  </a></li>
-          <li><router-link v-if="isLogin" to="/svu/admin">مدير النظام  </router-link></li>
-
+          <li><a href="#contact">التواصل </a></li>
+          <li>
+            <router-link v-if="isLogin" to="/svu/admin"
+              >مدير النظام
+            </router-link>
+          </li>
         </ul>
       </nav>
 
-    <v-btn  v-if="isLogin"  icon>
-          <v-icon
-             
-              
-              style="transform: rotate(180deg);color: white;"
-              size="30"
-              >mdi-logout</v-icon
-            >
-    </v-btn>
-      <v-dialog  v-else v-model="dialog" max-width="360">
-        <template v-slot:activator="{ on, attrs }">
-      
-          <div
-         
-            v-bind="attrs"
-            v-on="on"
-            id="login"
-            class="fas fa-user-circle"
-          ></div>
-        </template>
+      <v-btn v-if="isLogin" @click="logout" icon>
+        <v-icon style="transform: rotate(180deg); color: white" size="30"
+          >mdi-logout</v-icon
+        >
+      </v-btn>
+      <div
+        v-else
+        @click="dialog = true"
+        id="login"
+        class="fas fa-user-circle"
+      ></div>
+      <v-dialog v-model="dialog" max-width="360">
         <div class="login-form">
-          <form action="">
+          <form @submit.prevent="log">
             <h3>تسجيل دخول</h3>
-            <input type="email" placeholder="اسم مستخدم" class="box" />
-            <input type="password" placeholder="كلمة المررو" class="box" />
-            <p>نسيت كلمه المرور ؟ <a href="#">انقر هنا</a></p>
-            <p>ليس لديك حساب ؟ <a href="#">سجل الان</a></p>
-            <input type="submit" class="btn" value="login" />
-            
-            <i  @click="dialog = false" class="fas fa-times"></i>
+            <input
+              v-model="loginForm.user"
+              placeholder="اسم مستخدم"
+              class="box"
+            />
+            <input
+              v-model="loginForm.password"
+              type="text"
+              placeholder="كلمة المررو"
+              class="box"
+            />
+            <p class="red--text">{{msg}}</p>
+            <!-- <p>نسيت كلمه المرور ؟ <a href="#">انقر هنا</a></p> -->
+            <!-- <p>ليس لديك حساب ؟ <a href="#">سجل الان</a></p> -->
+            <input
+              type="submit"
+              @click="log"
+              class="btn"
+              value="login"
+            />
+
+            <i @click="dialog = false" class="fas fa-times"></i>
           </form>
         </div>
       </v-dialog>
@@ -206,7 +216,7 @@
       <h1 class="heading" style="margin-top: 180px">المكتبة</h1>
       <p class="text-center fs-1">مكتبة متنوعة فيها كل ما يلزم أطفالك</p>
 
-      <router-link :to="'/svu/views/library'" target="_blank"
+      <router-link :to="'/svu/views/library'" 
         ><button class="btn">انقر هنا</button></router-link
       >
     </section>
@@ -294,17 +304,36 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 export default {
-    computed:{
-      ...mapGetters('school', ['isLogin'])
-    },
-    data(){
-        return {
-            dialog: false
-        }
+  data () {
+    return {
+      msg:'',
+      dialog: false,
+      loginForm: {
+        user: '',
+        password: ''
+      }
     }
-    
+  },
+  computed: {
+    ...mapGetters('school', ['isLogin'])
+  },
+  methods: {
+    log () {
+     if(this.loginForm.user === 'admin' & this.loginForm.password == '123') {
+      this.dialog =false
+      this.login()
+      setTimeout(() => {
+        this.$router.push('/svu/admin')
+      }, 1000);
+
+     } else {
+      this.msg = 'خطأ في اسم المستخدم او كلمة المرور'
+     }
+    },
+    ...mapMutations('school', ['login', 'logout'])
+  }
 }
 </script>
 

@@ -9,7 +9,7 @@
           <div  style="text-decoration: underline;font-size: 1.5rem;" class=" me-2 white--text "> <i class="fas fa-user-graduate"></i> مدرسة المعرفة </div>
           <div style="padding-top: 0.5rem;
 padding-bottom: 0.5rem;">
-            <router-link  style="text-decoration: underline; font-size: 1.25rem;" class="  me-5 white--text " v-for="(link , index) in header" :key="index" :to="link.path">{{link.text}}</router-link>
+            <router-link  style="text-decoration: underline; font-size: 1.25rem;" class=" mx-2 white--text " v-for="(link , index) in header" :key="index" :to="link.path">{{link.text}}</router-link>
           </div>
           <div>
              <v-icon color="white" style="transform: rotate(180deg);" size="30">mdi-logout</v-icon>
@@ -20,12 +20,9 @@ padding-bottom: 0.5rem;">
         <v-container>
           <v-row>
              <v-col cols="10">
-              <v-sheet
-              min-height="70vh"
-              rounded="lg"
-            >
+            
               <router-view></router-view>
-            </v-sheet>
+            
              </v-col>
            
             <v-col cols="2">
@@ -70,7 +67,7 @@ data: () => ({
     adminViews: [
       { path: '/svu/admin/movies', text: 'الافلام' },
       { path: '/svu/admin/songs', text: 'الأغاني' },
-      { path: '/svu/admin/users', text: 'users' }
+      { path: '/svu/admin/users', text: 'الاعضاء المسجلين' }
     ],
         
     header: [
@@ -79,6 +76,7 @@ data: () => ({
       { path: '/svu/views/home#course', text: 'الصفوف والاسعار' },
       { path: '/svu/views/home#library', text: 'المكتبة' },
       { path: '/svu/views/home#contact', text: 'التواصل' },
+      { path: '/svu/admin', text: 'مدير النظام ' },
      
     ]
     
