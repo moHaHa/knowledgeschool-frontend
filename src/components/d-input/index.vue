@@ -9,7 +9,12 @@
 <script>
 export default {
   name:'d-input'
-
+,props:{
+   rules: {
+      type: [Object, String],
+      default: ''
+    },
+}
 }
 </script>
 

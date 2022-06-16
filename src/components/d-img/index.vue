@@ -5,6 +5,7 @@
       :loading="loading"
       prepend-icon="mdi-camera"
       show-size
+      :label="label"
       @change="uploadFile"
     >
     </v-file-input>
@@ -35,6 +36,9 @@ export default {
   props: {
     value: {
       type: String
+    },
+    label:{
+      type:[String, Number]
     }
   },
   data () {

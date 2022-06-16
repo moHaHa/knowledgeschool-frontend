@@ -238,8 +238,7 @@ export default {
     },
     async updateRecord ({ state, commit }) {
       let response = new Object()
-      let newEndPoint = `${state.APIInfo.endPoint}`
-      state.bodyTargerToUpdate['id'] = state.recordIdTargetedForUpdate
+      let newEndPoint = `${state.APIInfo.endPoint}/${state.recordIdTargetedForUpdate}`
       commit('changeUpdateRecordsLoader', true)
       try {
         response = await axios.put(newEndPoint, state.bodyTargerToUpdate)

@@ -14,16 +14,16 @@
       <div>
         <v-dialog v-model="deleteDialog" persistent max-width="290">
           <v-card>
-            <v-card-title class="text-h5"> Record Delete </v-card-title>
-            <v-card-text>sure you want to delete this record ?</v-card-text>
+            <v-card-title class="text-h5"> تأكيد الحذف </v-card-title>
+            <v-card-text>هل انت متأكد انك تريد حذف هذا السطر ؟</v-card-text>
 
             <v-card-actions>
               <v-spacer></v-spacer>
               <v-btn color="grey darken-1" text @click="deleteDialog = false">
-                cancel
+                إلغاء
               </v-btn>
               <v-btn color="red darken-1" text @click="deleteMethod">
-                sure
+                تأكيد
               </v-btn>
             </v-card-actions>
           </v-card>
