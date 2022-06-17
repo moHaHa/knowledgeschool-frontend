@@ -18,7 +18,7 @@ const router = new Router({
   routes: [
     
     {
-      path: '/svu',
+      path: '/',
       component: () => import('../modules/school/layouts/start-layout'),
       children: [svuRouter]
     },

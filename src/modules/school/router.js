@@ -21,11 +21,11 @@ export default {
       ]
     },
     {
-      path: 'views',
+      path: '',
       component: () => import('./layouts/views-layout'),
       children: [
         {
-          path: 'home',
+          path: '',
           component: () => import('./views/home')
         },
         {

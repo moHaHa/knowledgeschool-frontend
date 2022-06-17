@@ -14,13 +14,13 @@
 
       <nav class="navbar">
         <ul>
-          <li><a class="active" href="#home">الصفحة الرئيسة</a></li>
+          <li><a class="active secondary--text" href="#home">الصفحة الرئيسة</a></li>
           <li><a href="#about">حول المدرسة </a></li>
           <li><a href="#course">الصفوف والاسعار</a></li>
           <li><a href="#library">المكتبة</a></li>
           <li><a href="#contact">التواصل </a></li>
           <li>
-            <router-link v-if="isLogin" to="/svu/admin"
+            <router-link v-if="isLogin" to="/admin"
               >مدير النظام
             </router-link>
           </li>
@@ -358,7 +358,7 @@ export default {
         this.dialog = false
         this.login()
         setTimeout(() => {
-          this.$router.push('/svu/admin')
+          this.$router.push('/admin')
         }, 1000)
       } else {
         this.msg = 'خطأ في اسم المستخدم او كلمة المرور'

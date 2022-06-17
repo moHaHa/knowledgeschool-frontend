@@ -6,13 +6,14 @@
           style="padding: 0.93rem 7%"
           class="d-flex tw-w-full justify-space-between align-center"
         >
-          <div  style="text-decoration: underline;font-size: 1.5rem;" class=" me-2 white--text "> <i class="fas fa-user-graduate"></i> مدرسة المعرفة </div>
+          <div  @click="goHome" style="cursor: pointer;text-decoration: underline;font-size: 1.5rem;" class=" me-2 white--text "> <i class="fas fa-user-graduate"></i> مدرسة المعرفة </div>
           <div style="padding-top: 0.5rem;
 padding-bottom: 0.5rem;">
             <router-link  style="text-decoration: underline; font-size: 1.25rem;" class=" mx-2 white--text " v-for="(link , index) in header" :key="index" :to="link.path">{{link.text}}</router-link>
           </div>
           <div>
-             <v-icon color="white" style="transform: rotate(180deg);" size="30">mdi-logout</v-icon>
+            
+             <v-icon  @click="logout" color="white" style="transform: rotate(180deg);" size="30">mdi-logout</v-icon>
           </div>
         </div>
       </v-system-bar>
@@ -52,7 +53,7 @@ padding-bottom: 0.5rem;">
 </template>
 
 <script>
-
+import {mapMutations} from 'vuex'
 export default {
 created(){
   let _html = document.querySelector('.html')
@@ -63,20 +64,26 @@ beforeDestroy(){
   let _html = document.querySelector('.html')
   _html.classList.remove('html-font')
 },  
+methods:{
+      ...mapMutations('school', ['login', 'logout' , 'register']),
+goHome(){
+  this.$router.push({path:'/#home'})
+}
+},
 data: () => ({
     adminViews: [
-      { path: '/svu/admin/movies', text: 'الافلام' },
-      { path: '/svu/admin/songs', text: 'الأغاني' },
-      { path: '/svu/admin/users', text: 'الاعضاء المسجلين' }
+      { path: '/admin/movies', text: 'الافلام' },
+      { path: '/admin/songs', text: 'الأغاني' },
+      { path: '/admin/users', text: 'الاعضاء المسجلين' }
     ],
         
     header: [
-      { path: '/svu/views/home', text: 'الصفحة الرئيسة' },
-      { path: '/svu/views/home#about', text: 'حول المدرسة' },
-      { path: '/svu/views/home#course', text: 'الصفوف والاسعار' },
-      { path: '/svu/views/home#library', text: 'المكتبة' },
-      { path: '/svu/views/home#contact', text: 'التواصل' },
-      { path: '/svu/admin', text: 'مدير النظام ' },
+      { path: '', text: 'الصفحة الرئيسة' },
+      { path: '/#about', text: 'حول المدرسة' },
+      { path: '/#course', text: 'الصفوف والاسعار' },
+      { path: '/#library', text: 'المكتبة' },
+      { path: '/#contact', text: 'التواصل' },
+      { path: '/admin', text: 'مدير النظام ' },
      
     ]
     
