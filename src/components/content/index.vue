@@ -128,6 +128,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { extend } from 'vee-validate'
 import { required } from 'vee-validate/dist/rules'
 extend('required', {
@@ -481,6 +482,30 @@ export default {
     }
   },
   async created () {
+     let obj = {
+        async fetch() {
+          try {
+            axios
+              .get("http://knowledgeschool-001-site1.dtempurl.com/movie", {
+                headers:{
+                    'Access-Control-Allow-Origin' :'*'
+                },
+                transformRequest: [
+                  (data, headers) => {
+                    delete headers.common["X-Requested-With"];
+                    return data;
+                  },
+                ],
+              })
+              .then((response) => {
+                console.log(response);
+              });
+          } catch (err) {
+            console.log(err);
+          }
+        },
+      };
+      obj.fetch();
     this.getStarted()
     await this.$store.dispatch(
       `${this.vuexModuleNameComputed}/getSchema`,

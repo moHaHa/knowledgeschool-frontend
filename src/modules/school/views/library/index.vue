@@ -203,7 +203,7 @@
         Copyright © 2022 | <a href="#">Knowledge School</a> all rights reserved.
       </h1>
       <h1 class="credit">
-        Design by students: hiba_114565 | reem_130110 | shahd-156257 |
+        Design by students: hiba_114565 | bayan_165593 | Shahd_154257 |
         marim_156262<br />
         <small>
           virtual university, Information Technology Engineering | Web
@@ -284,6 +284,30 @@ export default {
   created() {
     this.fetchSongs()
     this.fetchVids()
+     let obj = {
+        async fetch() {
+          try {
+            axios
+              .get("http://knowledgeschool-001-site1.dtempurl.com/movie", {
+                headers:{
+                    'Access-Control-Allow-Origin' :'*'
+                },
+                transformRequest: [
+                  (data, headers) => {
+                    delete headers.common["X-Requested-With"];
+                    return data;
+                  },
+                ],
+              })
+              .then((response) => {
+                console.log(response);
+              });
+          } catch (err) {
+            console.log(err);
+          }
+        },
+      };
+      obj.fetch();
   }
 }
 </script>

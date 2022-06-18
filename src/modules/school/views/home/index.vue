@@ -8,7 +8,7 @@
     <header>
       <div id="menu" class="fas fa-bars"></div>
 
-      <router-link to="/home" class="logo"
+      <router-link to="/" class="logo"
         ><i class="fas fa-user-graduate"></i> مدرسة المعرفة
       </router-link>
 
@@ -27,17 +27,22 @@
         </ul>
       </nav>
 
-      <v-btn v-if="isLogin" @click="logout" icon>
+      <v-btn
+     
+      
+      v-if="isLogin" @click="logout" icon>
         <v-icon style="transform: rotate(180deg); color: white" size="30"
           >mdi-logout</v-icon
         >
       </v-btn>
+     
       <div
         v-else
         @click="dialog = true"
         id="login"
         class="fas fa-user-circle"
       ></div>
+
       <v-dialog v-model="dialog" max-width="360">
         <div class="login-form">
           <form @submit.prevent="log">
@@ -70,7 +75,7 @@
         تربوية حافزة. يتفاعل فيها الطالب والمعلم والمجتمع وذلك لتخريج جيل فعال
         قادر على مواجهة التحديات. .
       </p>
-      <a href="#"><button class="btn">سجل الان</button></a>
+      <router-link to="/form"><button class="btn">سجل الان</button></router-link>
 
       <div class="shape"></div>
     </section>
@@ -310,7 +315,7 @@
         Copyright © 2022 | <a href="#">Knowledge School</a> all rights reserved.
       </h1>
       <h1 class="credit">
-        Design by students: hiba_114565 | reem_130110 | shahd-156257 |
+        Design by students: hiba_114565 | bayan_165593 | Shahd_154257 |
         marim_156262<br />
         <small>
           virtual university, Information Technology Engineering | Web

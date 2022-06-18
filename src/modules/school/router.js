@@ -34,6 +34,10 @@ export default {
         },
 
       ]
+    },
+    {
+      path: '/form',
+      component: () => import('./layouts/form-layout'),
     }
   ]
 }
