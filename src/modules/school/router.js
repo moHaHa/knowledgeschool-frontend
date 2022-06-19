@@ -15,8 +15,8 @@ export default {
           component: () => import('./admin/songs')
         },
         {
-          path: 'users',
-          component: () => import('./admin/users')
+          path: 'forms',
+          component: () => import('./admin/forms')
         }
       ]
     },

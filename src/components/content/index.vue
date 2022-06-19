@@ -86,7 +86,7 @@
           </div>
         </div>
         <div>
-          <v-btn color="primary" outlined @click="update"> حفظ التعديلات </v-btn>
+          <v-btn v-if="!tableView" color="primary" outlined @click="update"> حفظ التعديلات </v-btn>
         </div>
       </div>
     </div>
@@ -139,6 +139,7 @@ extend('required', {
 import { AgGridVue } from 'ag-grid-vue'
 import vuexChildStoreArgument from './store'
 import rowButtons from './components/row-buttons'
+import rowButtonsRead from './components/row-buttons-read'
 import {
   fillformInMainForm,
   getAttrComponent,
@@ -149,7 +150,8 @@ export default {
   components: {
     AgGridVue,
     // eslint-disable-next-line vue/no-unused-components
-    'row-buttons': rowButtons
+    'row-buttons': rowButtons,
+    'row-buttons-read': rowButtonsRead
   },
   data () {
     return {
@@ -312,6 +314,14 @@ export default {
           width: 200,
           pinned: 'right',
           cellRenderer: 'row-buttons',
+          resizable: false
+        })
+           } else {
+              newColumnDefs.push({
+            field: '',
+          width: 200,
+          pinned: 'right',
+          cellRenderer: 'row-buttons-read',
           resizable: false
         })
            }

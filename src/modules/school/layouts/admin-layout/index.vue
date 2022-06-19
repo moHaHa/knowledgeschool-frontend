@@ -74,7 +74,7 @@ data: () => ({
     adminViews: [
       { path: '/admin/movies', text: 'الافلام' },
       { path: '/admin/songs', text: 'الأغاني' },
-      { path: '/admin/users', text: 'الاعضاء المسجلين' }
+      { path: '/admin/forms', text: 'استمارات التسجيل' }
     ],
         
     header: [

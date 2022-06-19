@@ -34,6 +34,12 @@ export const getElementComponent = function (type) {
   case 'image':
     component = 'd-img'
     break
+  case 'text-read':
+    component = 'd-text-read'
+    break
+  case 'textarea-read':
+    component = 'd-textarea-read'
+    break
 
   default:
     component = 'd-input'

@@ -6,7 +6,7 @@
           <v-row justify="center">
             <v-col cols="12">
               <div>
-                <v-btn color="primary" v-ripple="false">
+                <v-btn @click="$router.push({path:'./#home'})" color="primary" v-ripple="false">
                   <v-icon small>mdi-arrow-right</v-icon>
                   العودة للرئيسية
                 </v-btn>
@@ -131,7 +131,7 @@
                 solo
                 required
                 hide-details="auto"
-                v-model="form.did_study_it"
+                v-model="form.language_level"
               ></v-select>
             </v-col>
             <v-col cols="12">
