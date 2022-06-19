@@ -370,7 +370,6 @@ export default {
       }
     },
     async post () {
-      console.log(this.contactForm)
 
       this.contactLoading = true
       try {

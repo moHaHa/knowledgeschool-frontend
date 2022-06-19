@@ -1,6 +1,8 @@
 <template>
   <div class="tw-flex align-center justify-space-around">
-   
+    <v-btn @click="invokeParentMethod_deleteButton" x-small icon fab outlined color="primary"
+      ><v-icon>mdi-close</v-icon></v-btn
+    >
     <v-btn class="mx-2" @click="invokeParentMethod_editButton" x-small icon fab  outlined color="primary"
       ><v-icon>mdi-eye</v-icon></v-btn
     >

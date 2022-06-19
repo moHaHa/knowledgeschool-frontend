@@ -449,7 +449,6 @@ export default {
     },
     // bodyTargerToUpdate
     formInMainForm () {
-      console.log(this.mainForm)
       this.mainForm = JSON.parse(
         JSON.stringify(
           fillformInMainForm.draw(this.existedRecord, this.mappingData).fill

@@ -46,7 +46,6 @@ export default {
         }
       }
     })
-    console.log(this.$vuetify);
     this.$vuetify.rtl  = true
   }
 }

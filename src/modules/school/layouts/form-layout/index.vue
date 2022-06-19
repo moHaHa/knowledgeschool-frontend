@@ -231,11 +231,11 @@ export default {
          try {
              this.formLoading = true
         let res = await axios.post('/form', this.form)
-        console.log(res)
         this.register(this.form)
         this.formLoading = false
         this.formLoading = false
         this.msgForm = 'تم الارسال بنجاح'
+        console.log(res);
       } catch (err) {
         this.formLoading = false
         console.log(err)

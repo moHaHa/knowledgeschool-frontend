@@ -3,21 +3,21 @@
     <header>
       <div id="menu" class="fas fa-bars"></div>
 
-         <router-link to="/home" class="logo"
+      <router-link to="/home" class="logo"
         ><i class="fas fa-user-graduate"></i> مدرسة المعرفة
       </router-link>
 
       <nav class="navbar">
         <ul>
-          <li><router-link class="active" to="#home">الصفحة الرئيسة</router-link></li>
+          <li>
+            <router-link class="active" to="#home">الصفحة الرئيسة</router-link>
+          </li>
           <li><router-link to="#about">حول المدرسة </router-link></li>
           <li><router-link to="#course">الصفوف والاسعار</router-link></li>
           <li><router-link to="#library">المكتبة</router-link></li>
           <li><router-link to="#contact">التواصل </router-link></li>
           <li>
-            <router-link v-if="isLogin" to="/admin"
-              >مدير النظام
-            </router-link>
+            <router-link v-if="isLogin" to="/admin">مدير النظام </router-link>
           </li>
         </ul>
       </nav>
@@ -156,7 +156,13 @@
 
     <v-container>
       <v-row>
-          <v-col v-for="(movie , i ) in movies" :key="i" cols="4">
+          <v-col  v-if="vidLoading" class="py-4 d-flex justify-center">
+          <v-progress-circular
+      indeterminate
+      color="primary"
+    ></v-progress-circular>
+        </v-col>
+        <v-col v-for="(movie, i) in movies" :key="i" cols="4">
           <d-vid :item="movie"> </d-vid>
         </v-col>
       </v-row>
@@ -171,10 +177,15 @@
 
     <v-container>
       <v-row>
-        <v-col v-for="(song , i ) in songs" :key="i" cols="4">
+        <v-col  v-if="vidLoading" class="py-4 d-flex justify-center">
+          <v-progress-circular
+      indeterminate
+      color="primary"
+    ></v-progress-circular>
+        </v-col>
+        <v-col v-for="(song, i) in songs" :key="i" cols="4">
           <d-song :item="song"> </d-song>
         </v-col>
-       
       </v-row>
     </v-container>
 
@@ -229,40 +240,44 @@ export default {
   data () {
     return {
       msg: '',
-    songs: [],
-    movies: [],
+      songs: [],
+      movies: [],
       msgContack: '',
       contactLoading: false,
       dialog: false,
       loginForm: {
         user: '',
         password: ''
-      }
+      },
+      songLoading: false,
+      vidLoading: false
     }
   },
   computed: {
     ...mapGetters('school', ['isLogin', 'user', 'isRegistered', 'userData'])
   },
   methods: {
-    async fetchSongs(){
+    async fetchSongs () {
+      this.songLoading = true
       try {
-
         let res = await axios.get('/song')
         this.songs = res.data
-      } catch(err) {
-        console.log(err);
+        this.songLoading = false
+      } catch (err) {
+        this.songLoading = false
+        console.log(err)
       }
-
     },
-    async fetchVids(){
+    async fetchVids () {
       try {
-
+        this.vidLoading = true
         let res = await axios.get('/movie')
         this.movies = res.data
-      } catch(err) {
-        console.log(err);
+        this.vidLoading = false
+      } catch (err) {
+        this.vidLoading = false
+        console.log(err)
       }
-
     },
     log () {
       if (
@@ -281,33 +296,33 @@ export default {
 
     ...mapMutations('school', ['login', 'logout', 'register'])
   },
-  created() {
+  created () {
     this.fetchSongs()
     this.fetchVids()
-     let obj = {
-        async fetch() {
-          try {
-            axios
-              .get("http://knowledgeschool-001-site1.dtempurl.com/movie", {
-                headers:{
-                    'Access-Control-Allow-Origin' :'*'
-                },
-                transformRequest: [
-                  (data, headers) => {
-                    delete headers.common["X-Requested-With"];
-                    return data;
-                  },
-                ],
-              })
-              .then((response) => {
-                console.log(response);
-              });
-          } catch (err) {
-            console.log(err);
-          }
-        },
-      };
-      obj.fetch();
+    let obj = {
+      async fetch () {
+        try {
+          axios
+            .get('http://knowledgeschool-001-site1.dtempurl.com/movie', {
+              headers: {
+                'Access-Control-Allow-Origin': '*'
+              },
+              transformRequest: [
+                (data, headers) => {
+                  delete headers.common['X-Requested-With']
+                  return data
+                }
+              ]
+            })
+            .then((response) => {
+              console.log(response)
+            })
+        } catch (err) {
+          console.log(err)
+        }
+      }
+    }
+    obj.fetch()
   }
 }
 </script>

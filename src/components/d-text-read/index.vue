@@ -1,23 +1,19 @@
 <template>
-    <v-text-field
-      readonly
-      v-bind="$attrs"
-      v-on="$listeners"
-    ></v-text-field>
+  <v-text-field
+    class="redd readread"
+    readonly
+    disabled
+    v-bind="$attrs"
+    v-on="$listeners"
+  ></v-text-field>
 </template>
 
 <script>
 export default {
-  name:'d-text-read'
-,props:{
-   rules: {
-      type: [Object, String],
-      default: ''
-    },
-}
+  name: 'd-text-read',
+  props: {
+  }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>

@@ -7,7 +7,7 @@ import dTextareaRead from './d-textarea-read'
 
 Vue.component(dInput.name, dInput)
 Vue.component(dImg.name, dImg)
-Vue.component(dTextRead.name, dInput)
-Vue.component(dTextareaRead.name, dImg)
+Vue.component(dTextRead.name, dTextRead)
+Vue.component(dTextareaRead.name, dTextareaRead)
 
 

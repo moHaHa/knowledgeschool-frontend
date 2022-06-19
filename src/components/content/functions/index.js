@@ -75,7 +75,6 @@ export const getColumnDefs_fromSchema = function () {
 export const schemaTo = {
   columnDefs (schema) {
     let obj = { schema }
-    console.log(obj)
     let mappingData = [
       [
         'array',
@@ -133,7 +132,6 @@ export const schemaTo = {
         mappingData.forEach((el) => {
           if (el[0] === 'array') {
             if (el[1][1] === element[0]) {
-              console.log(el[1])
               const newArray = Array()
               for (let i = 0; i < element[1].length; i++) {
                 const ele = element[1][i]
@@ -146,7 +144,6 @@ export const schemaTo = {
           }
         })
       }
-      console.log(mainList)
       fill = Object.fromEntries(mainList)
       return { fill }
     }

@@ -1,9 +1,9 @@
 <template>
-    <v-text-field
-      readonly
+    <v-textarea-field
+      disabled
       v-bind="$attrs"
       v-on="$listeners"
-    ></v-text-field>
+    ></v-textarea-field>
 </template>
 
 <script>
