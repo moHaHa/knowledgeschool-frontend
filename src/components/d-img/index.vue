@@ -9,6 +9,13 @@
       @change="uploadFile"
     >
     </v-file-input>
+     <v-file-input
+      clearable
+     
+     
+      @change="createImageData"
+    >
+    </v-file-input>
     <v-img :src="val" max-width="100%">
      <template v-slot:placeholder>
           <v-row
@@ -30,7 +37,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 let upload = new Upload({ apiKey: 'free' })
-
+import axios from 'axios'
 export default {
   name: 'd-img',
   props: {
@@ -65,6 +72,22 @@ export default {
     }
   },
   methods: {
+    
+    async createImageData (file) {
+      if (!file) {
+        this.$emit('input', '')
+        return
+      }
+      console.log('hi', file);
+      let formData = new FormData();
+      formData.append('file', file);
+        axios.post( 'http://publicimage-001-site1.htempurl.com/public',formData,{headers: {'Content-Type': 'multipart/form-data'}}).then(res=> {console.log(res);}).catch(err=> {console.log(err);} )
+      // const store = new FileReader()
+      // store.readAsDataURL(file)
+      // store.onloadend = () => {
+      //   this.$emit('input', store.result)
+      // }
+    },
     uploadFile(event) {
       if(event === null) return 
       
@@ -85,17 +108,6 @@ export default {
       this.uploadFile(e)
     },
 
-    createImageData (file) {
-      if (!file) {
-        this.$emit('input', '')
-        return
-      }
-      const store = new FileReader()
-      store.readAsDataURL(file)
-      store.onloadend = () => {
-        this.$emit('input', store.result)
-      }
-    }
   }
 }
 </script>
