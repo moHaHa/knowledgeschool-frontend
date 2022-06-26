@@ -10,12 +10,12 @@
       <nav class="navbar">
         <ul>
           <li>
-            <router-link class="active" to="#home">الصفحة الرئيسة</router-link>
+            <router-link class="active" to="/#home">الصفحة الرئيسة</router-link>
           </li>
-          <li><router-link to="#about">حول المدرسة </router-link></li>
-          <li><router-link to="#course">الصفوف والاسعار</router-link></li>
-          <li><router-link to="#library">المكتبة</router-link></li>
-          <li><router-link to="#contact">التواصل </router-link></li>
+          <li><router-link to="/#about">حول المدرسة </router-link></li>
+          <li><router-link to="/#course">الصفوف والاسعار</router-link></li>
+          <li><router-link to="/#library">المكتبة</router-link></li>
+          <li><router-link to="/#contact">التواصل </router-link></li>
           <li>
             <router-link v-if="isLogin" to="/admin">مدير النظام </router-link>
           </li>
@@ -90,7 +90,7 @@
         "
       >
         <img
-          src="https://i.ibb.co/fGqptR4/Mosque1-removebg-preview.png"
+          src="http://imageupload.mhacd.com/uploads/014640Mosque1-removebg-preview.png"
           class="card-img-top hvr-float-shadow hvr-glow w-50"
           alt="..."
         />
@@ -114,7 +114,7 @@
         "
       >
         <img
-          src="https://i.ibb.co/bXZPBB4/tar.png"
+          src="http://imageupload.mhacd.com/uploads/014719tar.png"
           class="card-img-top hvr-float-shadow hvr-glow w-50"
           alt="..."
         />
@@ -135,7 +135,7 @@
         "
       >
         <img
-          src="https://i.ibb.co/4gk6Kz9/world-book-fun-billboard-03.png"
+          src="http://imageupload.mhacd.com/uploads/020712world_book_fun_billboard_03.jpg"
           class="card-img-top hvr-float-shadow hvr-glow w-50"
           alt="..."
         />
@@ -195,11 +195,11 @@
       <div class="box-container">
         <div class="box">
           <h3>روابط سريعة</h3>
-          <a href="#">الصفحة الرئيسة</a>
-          <a href="#">حول المدرسة</a>
-          <a href="#">الصفوف والاسعار </a>
-          <a href="#">المكتبة</a>
-          <a href="#">التواصل </a>
+          <router-link to="/">الصفحة الرئيسة</router-link>
+          <router-link to="/#about">حول المدرسة</router-link>
+          <router-link to="/#course">الصفوف والاسعار </router-link>
+          <router-link to="/#library">المكتبة</router-link>
+          <router-link to="/#contact">التواصل </router-link>
         </div>
 
         <div class="box">

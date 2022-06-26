@@ -15,10 +15,10 @@
       <nav class="navbar">
         <ul>
           <li><a class="active secondary--text" href="#home">الصفحة الرئيسة</a></li>
-          <li><a href="#about">حول المدرسة </a></li>
-          <li><a href="#course">الصفوف والاسعار</a></li>
-          <li><a href="#library">المكتبة</a></li>
-          <li><a href="#contact">التواصل </a></li>
+          <li><a href="/#about">حول المدرسة </a></li>
+          <li><a href="/#course">الصفوف والاسعار</a></li>
+          <li><a href="/#library">المكتبة</a></li>
+          <li><a href="/#contact">التواصل </a></li>
           <li>
             <router-link v-if="isLogin" to="/admin"
               >مدير النظام
@@ -86,7 +86,7 @@
 
     <section class="about" id="about">
       <div class="image">
-        <img src="https://i.ibb.co/8xcY2LZ/Contact-us-1.gif" alt="" />
+        <img src="http://imageupload.mhacd.com/uploads/013435Blog post.gif" alt="" />
       </div>
 
       <div class="content">
@@ -115,7 +115,7 @@
 
       <div class="box-container">
         <div class="box">
-          <img src="https://i.ibb.co/t3NTJDT/Best-School-AR2202202-2.png" />
+          <img src="http://imageupload.mhacd.com/uploads/014211Best-School-AR2202202-2.png" />
           <h3 class="price">$40</h3>
           <div class="content">
             <div class="stars">
@@ -138,7 +138,7 @@
         </div>
 
         <div class="box">
-          <img src="https://i.ibb.co/N2XyVK5/image.png" alt="" />
+          <img src="http://imageupload.mhacd.com/uploads/014303-ƒÚßÕÚ-ÙÕ½´ƒ-ÚÚÛº®½í.png" alt="" />
           <h3 class="price">$60</h3>
           <div class="content">
             <div class="stars">
@@ -160,7 +160,7 @@
         </div>
 
         <div class="box">
-          <img src="https://i.ibb.co/w0KxZL1/image.png" alt="" />
+          <img src="http://imageupload.mhacd.com/uploads/014347-ƒÚÙÕ½´í-ÚÚßÕÚ.png" alt="" />
           <h3 class="price">$80</h3>
           <div class="content">
             <div class="stars">
@@ -183,7 +183,7 @@
 
         <div class="box">
           <img
-            src="https://i.ibb.co/1MjFSLR/secondary-school-825x510.png"
+            src="http://imageupload.mhacd.com/uploads/014448secondary-school-ÛÒÙ¯-825x510.png"
             alt=""
           />
           <h3 class="price">$100</h3>
@@ -232,7 +232,7 @@
         <div class="row g-0">
           <div class="col-md-4">
             <img
-              src="https://i.ibb.co/8xcY2LZ/Contact-us-1.gif"
+              src="http://imageupload.mhacd.com/uploads/014546Contact us (1).gif"
               class="img-fluid rounded-start"
               alt="..."
             />
@@ -294,13 +294,13 @@
 
     <div class="footer">
       <div class="box-container">
-        <div class="box">
+         <div class="box">
           <h3>روابط سريعة</h3>
-          <a href="#">الصفحة الرئيسة</a>
-          <a href="#">حول المدرسة</a>
-          <a href="#">الصفوف والاسعار </a>
-          <a href="#">المكتبة</a>
-          <a href="#">التواصل </a>
+          <router-link to="/">الصفحة الرئيسة</router-link>
+          <router-link to="/#about">حول المدرسة</router-link>
+          <router-link to="/#course">الصفوف والاسعار </router-link>
+          <router-link to="/#library">المكتبة</router-link>
+          <router-link to="/#contact">التواصل </router-link>
         </div>
 
         <div class="box">

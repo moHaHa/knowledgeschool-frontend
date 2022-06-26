@@ -6,16 +6,10 @@
       prepend-icon="mdi-camera"
       show-size
       :label="label"
-      @change="uploadFile"
-    >
-    </v-file-input>
-     <v-file-input
-      clearable
-     
-     
       @change="createImageData"
     >
     </v-file-input>
+     
     <v-img :src="val" max-width="100%">
      <template v-slot:placeholder>
           <v-row
@@ -78,36 +72,13 @@ export default {
         this.$emit('input', '')
         return
       }
-      console.log('hi', file);
+      this.loading = true
       let formData = new FormData();
-      formData.append('file', file);
-        axios.post( 'http://publicimage-001-site1.htempurl.com/public',formData,{headers: {'Content-Type': 'multipart/form-data'}}).then(res=> {console.log(res);}).catch(err=> {console.log(err);} )
-      // const store = new FileReader()
-      // store.readAsDataURL(file)
-      // store.onloadend = () => {
-      //   this.$emit('input', store.result)
-      // }
+      formData.append('fileToUpload', file);
+        let res = await axios.post('http://imageupload.mhacd.com/upload.php',formData,{headers: {'Access-Control-Allow-Headers': '*'}})
+      this.loading = false
+        this.$emit('input', res.data)
     },
-    uploadFile(event) {
-      if(event === null) return 
-      
-      let e = {
-        target: {
-          files: [event],
-        },
-      }
-      this.uploadFile =   upload.createFileInputHandler({
-        onBegin:()=>{
-          this.loading = true
-        },
-        onUploaded: ({ fileUrl, fileId }) => {
-          this.loading = false
-          this.val = fileUrl
-        }
-      })
-      this.uploadFile(e)
-    },
-
   }
 }
 </script>
